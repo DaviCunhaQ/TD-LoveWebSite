@@ -14,3 +14,24 @@ function updateTimer() {
 
 updateTimer();
 setInterval(updateTimer, 1000);
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const modal = document.getElementById("imageModal");
+  const modalImg = modal.querySelector("img");
+  const galery = document.querySelector("#galery");
+
+  galery.addEventListener("click", (e) => {
+    if (e.target.tagName === "IMG") {
+      modalImg.src = e.target.src;
+      modal.style.display = "flex";
+    }
+  });
+
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.style.display = "none";
+    }
+  });
+});
