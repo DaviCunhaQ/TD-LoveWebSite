@@ -16,7 +16,6 @@ updateTimer();
 setInterval(updateTimer, 1000);
 
 
-
 document.addEventListener("DOMContentLoaded", () => {
   const modal = document.getElementById("imageModal");
   const modalImg = modal.querySelector("img");
@@ -25,13 +24,13 @@ document.addEventListener("DOMContentLoaded", () => {
   galery.addEventListener("click", (e) => {
     if (e.target.tagName === "IMG") {
       modalImg.src = e.target.src;
-      modal.style.display = "flex";
+      modal.classList.add("show");
     }
   });
 
   modal.addEventListener("click", (e) => {
     if (e.target === modal) {
-      modal.style.display = "none";
+      modal.classList.remove("show");
     }
   });
 });

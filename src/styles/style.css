@@ -91,9 +91,8 @@ main {
   transition: transform 0.3s ease-in-out;
 }
 
-/* Modal base */
 #imageModal {
-  display: none;
+  display: flex; /* sempre 'flex' para manter transição, mas escondido por opacidade */
   position: fixed;
   z-index: 999;
   top: 0; left: 0;
@@ -102,15 +101,27 @@ main {
   background-color: rgba(0,0,0,0.8);
   justify-content: center;
   align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-/* Imagem em destaque */
+#imageModal.show {
+  opacity: 1;
+  visibility: visible;
+}
+
 #imageModal img {
   max-width: 90%;
   max-height: 90%;
   border-radius: 8px;
   box-shadow: 0 0 16px rgba(0,0,0,0.5);
+  transform: scale(0.95);
   transition: transform 0.3s ease;
+}
+
+#imageModal.show img {
+  transform: scale(1);
 }
 
 
